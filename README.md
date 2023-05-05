@@ -31,6 +31,8 @@ For EvoMaster, its `jar` file would be found under `EvoMaster/core/target`.
 
 The above command will produce scripts to execute the experiments. Additional information about replicating studies can be found on the below provided link.
 
+`exp.py false 12345 wm-exp 1 30 1h`
+
 ## Analyse Results
 
 The below archives contains results from the experiments we conducted.

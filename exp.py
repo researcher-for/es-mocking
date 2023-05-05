@@ -61,10 +61,10 @@
 ###   If a job failed due to
 #       perl: warning: Setting locale failed.
 #       perl: warning: Please check that your locale settings:
-#   	    LANGUAGE = (unset),
-#   	    LC_ALL = (unset),
-#   	    LC_CTYPE = "UTF-8",
-#   	    LANG = "en_US.iso885915"
+#           LANGUAGE = (unset),
+#           LC_ALL = (unset),
+#           LC_CTYPE = "UTF-8",
+#           LANG = "en_US.iso885915"
 #       are supported and installed on your system.
 #   you may fix it by executing
 #       export LANG=en_US.UTF-8
@@ -808,7 +808,6 @@ def getConfigs():
     CONFIGS = []
 
 
-
     USER = ParameterSetting("externalServiceIPSelectionStrategy", ["USER"])
     NONE = ParameterSetting("externalServiceIPSelectionStrategy", ["NONE"])
 
@@ -818,22 +817,15 @@ def getConfigs():
     PROB_HR = ParameterSetting("probOfHarvestingResponsesFromActualExternalServices", [0.5])
     PROB_HR_MUT = ParameterSetting("probOfMutatingResponsesBasedOnActualResponse", [0.1])
 
-#     HR_STR = ParameterSetting("externalRequestResponseSelectionStrategy",["CLOSEST_SAME_PATH"])
     PROB_SUCCESS_HR = ParameterSetting("probOfPrioritizingSuccessfulHarvestedActualResponses",[0.9])
 
     # default without wm handling, network is enabled, then SUT can connect to real external services by itself
     # default without wm handling, but disable network, then SUT cannot connect to real one.
     CONFIGS.append(Config([NONE, NON_INST], "Base"))
 
-    # multiple thread solution to harvest real responses [disable, enable], 1-2 runs for initial result check with 1h
-
-    # optimization of seeding the responses (seran: random or string similarity algorithm) and handling requests [disable, enable]
-
-    SELECTION = ParameterSetting("externalRequestResponseSelectionStrategy", ["RANDOM","CLOSEST_SAME_PATH"])
+    SELECTION = ParameterSetting("externalRequestResponseSelectionStrategy", ["RANDOM"])
 
     CONFIGS.append(Config([USER, INST, PROB_HR, PROB_HR_MUT,SELECTION, PROB_SUCCESS_HR], "WM"))
-
-    #debug: --forceSqlAllColumnInsertion=true --useExtraSqlDbConstraintsProbability=0.9 --externalServiceIPSelectionStrategy USER --instrumentMR_NET true --probOfHarvestingResponsesFromActualExternalServices 0.5 --probOfMutatingResponsesBasedOnActualResponse 0.1
 
     return CONFIGS
 
