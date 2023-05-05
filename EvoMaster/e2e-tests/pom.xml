@@ -1,0 +1,47 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.evomaster</groupId>
+        <artifactId>evomaster</artifactId>
+        <version>1.6.2-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>evomaster-e2e-tests</artifactId>
+    <packaging>pom</packaging>
+
+
+    <modules>
+        <module>e2e-tests-utils</module>
+        <module>dropwizard-examples</module>
+        <module>micronaut-latest</module>
+        <module>spring-rest-postgres</module>
+        <module>spring-rest-openapi-v2</module>
+        <module>spring-rest-openapi-v3</module>
+        <module>spring-graphql</module>
+        <module>spring-rest-mysql</module>
+        <module>spring-rpc</module>
+        <module>spring-rest-h2-v1</module>
+        <module>spring-rest-postgres-column-types</module>
+        <module>spring-rest-mysql-column-types</module>
+        <module>spring-rest-h2-column-types</module>
+        <module>spring-web</module>
+
+    </modules>
+
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.evomaster</groupId>
+                <artifactId>evomaster-e2e-tests-utils</artifactId>
+                <version>${project.version}</version>
+                <scope>test</scope>
+                <type>test-jar</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+</project>
